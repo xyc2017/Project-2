@@ -4,7 +4,7 @@ const mongoose=require('mongoose') // data connections
 
 const DATABASE_URL=process.env.DATABASE_URL
 const CONFIG={
-    userNewUrlParser: true, 
+    useNewUrlParser: true, 
     useUnifiedTopology: true
 }
  

@@ -4,9 +4,21 @@
         <main>
             <div>
             <a href="/habits/new"><button>Add New Habit</button></a>
+            <%  for (habit of habits){ %>
+                <article>
+                    <a href="/habits/<%=habit._id %>"> 
+                    
+                    <%=habit.name%> -
+                    <%=habit.complete %> 
+                </a>
+                    <% let c=0 %>
+                    <button onclick="c++">Counter
+                    </button>
+                    
+                </article>
+            <% } %>
             <a href="/habits/pomodoro"><button>Pomodoro Timer</button></a>
-            <h2><button>Check-in</button>
-            </h2>
+            
         </div>
         </main>
     

@@ -6,7 +6,11 @@ const Habit=require('../models/habits')
 
 // index route
 router.get('/', (req, res)=>{
-    res.render('habits/index.ejs')
+    Habit.find()
+    .then((habits)=>{
+        res.render('habits/index.ejs', {habits})
+    })
+    
 })
 
 router.get('/pomodoro',(req, res)=>{
@@ -35,5 +39,25 @@ router.post('/', (req, res)=>{
     })
 })
 
+router.get('/:id/edit', (req, res)=>{
+    Habit.findById(req.body.id, (err, foundHabit)=>{
+        res.render('habits/edit.ejs', {habit:foundHabit})
+    })
+})
+
+router.put('/:id', (req, res)=>{
+    req.body.complete=req.body.complete==='on' ? true:false
+    Habit.findByIdAndUpdate(req.params.id,req.body,{new:true},(err, updatedHabit)=>{
+        console.log(updatedHabit)
+        res.redirect(`/habits/${req.params.id}`)
+    })
+})
+
+router.get('/:id', (req, res)=>{
+    Habit.findById(req.params.id)
+    .then((habit)=>{
+        res.render('habits/show.ejs', {habit})
+    })
+})
 //export router to use in other files
 module.exports=router

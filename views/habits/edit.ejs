@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div>
+            <form action="/habits/<%=habit._id%>?_method=PUT" method="POST">
+                <fieldset>
+                    <legend>Edit a <%=habit.name%></legend>
+                    <label>
+                        ITEM NAME: <input 
+                        type="text" 
+                        name="name" 
+                        value="<%=habit.name%>"
+                        placeholder="Enter here" />
+                    </label>
+                    <label>
+                        TYPE: <input 
+                        type="type" 
+                        name="type" 
+                        value="<%=habit.type%>"
+                        placeholder="Start a new habit, or correct a bad habit" />
+                    </label>
+                    <label>
+                        START DATE: <input 
+                        type="date" 
+                        name="startDate"
+                        value="<%=habit.startDate%>" />
+                    </label>
+                    <label>
+                        TARGET DATE: <input 
+                        type="date" 
+                        name="targetDate"
+                        value="<%=habit.targetDate%>" />
+                    </label>
+                    <label>
+                        COMPLETE? <input 
+                        type="checkbox" 
+                        name="complete" <%= habit.complete ? "checked" : "" %> />
+                    </label>
+                    <label>
+                        NOTES: <input 
+                        type="text" 
+                        name="notes" 
+                        value="<%=habit.notes %>"
+                        placeholder="Enter notes here" />
+                    </label>
+                    <label>
+                        USERNAME: <input 
+                        type="text" 
+                        name="username"
+                        value="<%=habit.username %>" />
+                    </label>
+                </fieldset>
+                <input type="submit" value="Update <%=habit.name %>" />
+            </form>
+        </div>
+    </body>
+</html>

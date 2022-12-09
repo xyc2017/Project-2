@@ -12,7 +12,9 @@ const habitsSchema=new Schema({
     targetDate: Date,
     complete: Boolean,
     notes: String,
+    counter: String,
     username: String
+
 }) 
 
 const Habit=model('Habit', habitsSchema) // inside model, create habit, collect and use the habitSchema

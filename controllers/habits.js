@@ -10,7 +10,6 @@ router.get('/', (req, res)=>{
     .then((habits)=>{
         res.render('habits/index.ejs', {habits})
     })
-    
 })
 
 router.get('/pomodoro',(req, res)=>{
@@ -58,6 +57,14 @@ router.get('/:id', (req, res)=>{
     .then((habit)=>{
         res.render('habits/show.ejs', {habit})
     })
+})
+
+router.delete('/:id', (req, res)=>{
+    Habit.findByIdAndDelete(req.params.id, (err, deletedHabit)=>{
+        console.log(err, deletedHabit)
+        res.redirect('/habits')
+    })
+    
 })
 //export router to use in other files
 module.exports=router

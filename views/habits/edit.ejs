@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+    <%- include("../partials/head.ejs") %> 
     <body>
+         <%- include("../partials/header.ejs") %> 
         <div>
-            <form action="/habits/<%=habit._id%>?_method=PUT" method="POST">
+            <form action="/habits/<%= habit._id %>?_method=PUT" method="POST">
                 <fieldset>
                     <legend>Edit a <%=habit.name%></legend>
                     <label>

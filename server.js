@@ -5,7 +5,10 @@ const morgan=require('morgan')
 const methodOverride=require('method-override')
 const mongoose=require('mongoose')
 const HabitRouter=require('./controllers/habits')
+const UserRouter=require('./controllers/user')
 const PORT=process.env.PORT || 5678
+const session=require('express-session') // gives session cookies
+const MongoStore=require('connect-mongo') // reads the session and connect to mongodb
 //create express app
 const app=express()
 //establish mong connection
@@ -21,7 +24,13 @@ app.use('/static', express.static('public'))
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
 app.use('/habits', HabitRouter)
-
+app.use(session({
+    secret: process.env.SECRET, 
+    store: MongoStore.create({mongoUrl: process.env.DATABASE_URL}),
+    saveUninitialized: true, 
+    resave: false
+}))
+app.use('/user', UserRouter)
 // app.get('/', (req, res)=>{
 //     res.render('index.ejs')
 // })

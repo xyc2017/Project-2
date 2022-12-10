@@ -12,7 +12,7 @@ router.get('/signup', (req, res)=>{
     res.render('user/signup.ejs')
 })
 
-router.post('/signup', (req, res)=>{
+router.post('/signup', async (req, res)=>{
     req.body.password=await
     bcrypt.hash(req.body.password, await bcrypt.genSalt(10)) 
     // 10 degrees of difficulties
@@ -21,3 +21,37 @@ router.post('/signup', (req, res)=>{
         res.redirect('/user/login')
     })
 })
+
+// login routes
+
+router.get('/login', (req, res)=>{
+    res.render('user/login.ejs')
+})
+
+router.post('/login', (req, res)=>{
+    const {username, password}=req.body
+    // equivalent to req.body.username, req.body.password
+    User.findOne({username}, (err, user)=>{
+        if(!user){
+            res.send('User does not exist')
+        }else{
+            const result=bcrypt.compareSync(password, user.password)
+            if(result){
+                req.session.username=username
+                req.session.loggedIn=true
+                res.redirect('/habits')
+            }else{
+                res.send('Incorrect password')
+            }
+        
+        }
+    })
+})
+router.get('/loggout', (req, res)=>{
+    // log out button
+    req.session.destroy((err)=>{ // destroy session and redirect to home page
+        res.redirect('/')
+    })
+})
+
+module.exports=router

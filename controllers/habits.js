@@ -39,7 +39,8 @@ router.post('/', (req, res)=>{
 })
 
 router.get('/:id/edit', (req, res)=>{
-    Habit.findById(req.body.id, (err, foundHabit)=>{
+    Habit.findById(req.params.id, (err, foundHabit)=>{
+        console.log(foundHabit, 'this is the habit we found')
         res.render('habits/edit.ejs', {habit:foundHabit})
     })
 })
@@ -53,6 +54,7 @@ router.put('/:id', (req, res)=>{
 })
 
 router.get('/:id', (req, res)=>{
+    console.log(req.params.id, 'this is the parameter')
     Habit.findById(req.params.id)
     .then((habit)=>{
         res.render('habits/show.ejs', {habit})

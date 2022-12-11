@@ -1,8 +1,24 @@
 const express=require('express')
-const router=express.Router()
 const Habit=require('../models/habits')
+const router=express.Router()
 
 // routes
+router.use((req, res, next)=>{
+    if(req.session.loggedIn){ // req.session 
+        (next) // check to see if logged in, if not redirect to the log in page
+    }else{
+        res.redirect('/user/login')
+    }
+})
+
+router.get('/', (req, res)=>{
+    // get all habits from mongodb and send them back
+    Habit.find({username: req.session.username})
+    .then((habits)=>{
+        res.render('habits/index.ejs', {habits})
+    })
+    .catch(err=>console.log)
+})
 
 // index route
 router.get('/', (req, res)=>{
@@ -38,6 +54,7 @@ router.post('/', (req, res)=>{
     })
 })
 
+
 router.get('/:id/edit', (req, res)=>{
     Habit.findById(req.params.id, (err, foundHabit)=>{
         console.log(foundHabit, 'this is the habit we found')
@@ -48,6 +65,9 @@ router.get('/:id/edit', (req, res)=>{
 router.put('/:id', (req, res)=>{
     req.body.complete=req.body.complete==='on' ? true:false
     Habit.findByIdAndUpdate(req.params.id,req.body,{new:true},(err, updatedHabit)=>{
+        // if (updatedHabit.complete=true){
+        //     updatedHabit.strike()
+        // }
         console.log(updatedHabit)
         res.redirect(`/habits/${req.params.id}`)
     })

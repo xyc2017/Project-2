@@ -7,6 +7,7 @@
         <main>
             <div>
             <a href="/habits/new"><button>Add New Habit</button></a>
+            <a href="/user/logout"><button>Logout</button></a>
             <%  for (habit of habits){ %>
                 <article>
                     <a href="/habits/<%=habit._id %>"> 
@@ -14,8 +15,8 @@
                     <%=habit.name%> -
                     <%=habit.complete %> 
                 </a>
-                    <% let c=0 %>
-                    <button onclick="c++">Counter
+                
+                    <button>Check-in
                     </button>
                     
                 </article>

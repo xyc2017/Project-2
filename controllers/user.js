@@ -6,7 +6,6 @@ const bcrypt=require('bcryptjs')
 const router=express.Router()
 
 // routes
-
 // the signup routes (get => form, post => submit form)
 router.get('/signup', (req, res)=>{
     res.render('user/signup.ejs')

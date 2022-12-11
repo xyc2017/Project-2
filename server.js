@@ -3,41 +3,27 @@ require('dotenv').config()
 const express=require('express')
 const morgan=require('morgan')
 const methodOverride=require('method-override')
-const mongoose=require('mongoose')
+const PORT=process.env.PORT || 5678
 const HabitRouter=require('./controllers/habits')
 const UserRouter=require('./controllers/user')
-const PORT=process.env.PORT || 5678
 const session=require('express-session') // gives session cookies
-const MongoStore=require('connect-mongo') // reads the session and connect to mongodb
-//create express app
-const app=express()
+const MongoStore=require('connect-mongo') // reads the session and connect to 
 //establish mong connection
-mongoose.connect(process.env.DATABASE_URL)
-// mongoose connection events
-// mongoose.connection
-// .on('open', ()=>{console.log("connected to mongo")})
-// .on('close', ()=>{console.log("disconnected to mongo")})
-// .on('error', (error)=>{console.log(error)})
-//register middleware
+const app=express()
+
 app.use(morgan('dev'))
 app.use('/static', express.static('public'))
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
-app.use('/habits', HabitRouter)
 app.use(session({
     secret: process.env.SECRET, 
     store: MongoStore.create({mongoUrl: process.env.DATABASE_URL}),
     saveUninitialized: true, 
     resave: false
 }))
-app.use('/user', UserRouter)
-// app.get('/', (req, res)=>{
-//     res.render('index.ejs')
-// })
 
-// app.get('/', (req, res)=>{
-//     res.send('<h1>Server is working</h1>')
-// })
+app.use('/habits', HabitRouter)
+app.use('/user', UserRouter)
 
 // start the server(listener)
 app.listen(PORT, ()=>{

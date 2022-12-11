@@ -5,7 +5,7 @@ const router=express.Router()
 // routes
 router.use((req, res, next)=>{
     if(req.session.loggedIn){ // req.session 
-        (next) // check to see if logged in, if not redirect to the log in page
+        next() // check to see if logged in, if not redirect to the log in page
     }else{
         res.redirect('/user/login')
     }
@@ -17,16 +17,9 @@ router.get('/', (req, res)=>{
     .then((habits)=>{
         res.render('habits/index.ejs', {habits})
     })
-    .catch(err=>console.log)
+    .catch(err=>console.log(err))
 })
 
-// index route
-router.get('/', (req, res)=>{
-    Habit.find()
-    .then((habits)=>{
-        res.render('habits/index.ejs', {habits})
-    })
-})
 
 router.get('/pomodoro',(req, res)=>{
     let time=1500
@@ -48,6 +41,7 @@ router.get('/new', (req, res)=>{
 
 router.post('/', (req, res)=>{
     req.body.complete=req.body.complete==='on' ? true : false
+    req.body.username=req.session.username
     Habit.create(req.body, (err, createdHabit)=>{
         console.log('created', createdHabit, err)
         res.redirect('/habits')
@@ -64,10 +58,7 @@ router.get('/:id/edit', (req, res)=>{
 
 router.put('/:id', (req, res)=>{
     req.body.complete=req.body.complete==='on' ? true:false
-    Habit.findByIdAndUpdate(req.params.id,req.body,{new:true},(err, updatedHabit)=>{
-        // if (updatedHabit.complete=true){
-        //     updatedHabit.strike()
-        // }
+    Habit.findByIdAndUpdate(req.params.id, req.body, {new:true},(err, updatedHabit)=>{
         console.log(updatedHabit)
         res.redirect(`/habits/${req.params.id}`)
     })

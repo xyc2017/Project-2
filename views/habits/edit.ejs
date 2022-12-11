@@ -5,9 +5,9 @@
          <%- include("../partials/header.ejs") %> 
         <div>
             <form action="/habits/<%= habit._id %>?_method=PUT" method="POST">
-                <fieldset>
-                    <legend>Edit a <%=habit.name%></legend>
-                    <label>
+                <fieldset class="edit-fieldset">
+                    <legend class="edit-legend">Edit a <%=habit.name%></legend>
+                    <label class="edit-label">
                         ITEM NAME: <input 
                         type="text" 
                         name="name" 

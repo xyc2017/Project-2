@@ -2,26 +2,28 @@
 <html>
     <%- include("../partials/head.ejs") %> 
 
-    <body>
+    <body class="index-body">
         <%- include("../partials/header.ejs") %> 
         <main>
-            <div>
-            <a href="/habits/new"><button>Add New Habit</button></a>
-            <a href="/user/logout"><button>Logout</button></a>
+            <div class="index-div">
+            <a class="index-a" href="/habits/new"><button class="index-button">Add New Habit</button></a>
+            <a class="index-a" href="/habits/pomodoro"><button class="index-timer">Pomodoro Timer</button></a>
+            <a class="index-a" href="/user/logout"><button class="index-logout-btn">Logout</button></a>
+            
             <%  for (habit of habits){ %>
-                <article>
+                <article class="index-article">
                     <a href="/habits/<%=habit._id %>"> 
                     
                     <%=habit.name%> -
                     <%=habit.complete %> 
                 </a>
                 
-                    <button>Check-in
+                    <button class="index-checkin-btn">Check-in
                     </button>
                     
                 </article>
             <% } %>
-            <a href="/habits/pomodoro"><button>Pomodoro Timer</button></a>
+            
             
         </div>
         </main>

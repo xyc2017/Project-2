@@ -1,0 +1,51 @@
+.index-div{
+    background-color: antiquewhite;
+    width: 30%;
+    padding: 20px;
+    margin:auto;
+}
+.index-button{
+    color: white;
+    background-color: violet;
+    border-color: violet;
+    padding: 5px;
+    margin: 4px 2px
+}
+.index-button{border-radius: 8px;}
+.index-checkin-btn{
+    color: white;
+    background-color: seagreen;
+    border-color: seagreen;
+    padding: 5px;
+    margin: 4px 2px;
+    justify-content: end;
+}
+.index-checkin-btn{border-radius: 8px;}
+.index-logout-btn{
+    color: white;
+    background-color: salmon;
+    border-color: salmon;
+    padding: 5px;
+    margin: 4px 2px
+}
+.index-logout-btn{border-radius: 8px;}
+.index-timer{
+    color: white;
+    background-color: tomato;
+    border-color: tomato;
+    padding: 5px;
+    margin: 4px 2px
+}
+.index-timer{border-radius: 8px;}
+.index-body{
+    text-align: center;
+    background-image: url("https://media.self.com/photos/6092c6f54eb017b40e89d517/4:3/w_2560%2Cc_limit/fitness_workouts_movement.jpeg");
+    background-size:cover;
+}
+.index-article{
+    justify-content: start;
+    margin-top: 10px;
+}
+.index-a{
+    margin:2px;
+}

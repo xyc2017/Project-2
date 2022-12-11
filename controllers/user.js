@@ -22,7 +22,6 @@ router.post('/signup', async (req, res)=>{
 })
 
 // login routes
-
 router.get('/login', (req, res)=>{
     res.render('user/login.ejs')
 })
@@ -46,7 +45,8 @@ router.post('/login', (req, res)=>{
         }
     })
 })
-router.get('/loggout', (req, res)=>{
+
+router.get('/logout', (req, res)=>{
     // log out button
     req.session.destroy((err)=>{ // destroy session and redirect to home page
         res.redirect('/')

@@ -6,7 +6,7 @@
     <%- include("../partials/header.ejs") %> 
         <main>
             <div>
-                <article>
+                <article class="show-article">
                     <h2>Habit Name: <%=habit.name %></h2>
                     <h2>Type: <%=habit.type %></h2>
                     <h2>Start Date: <%=habit.startDate %></h2>
@@ -16,7 +16,7 @@
                     <h2>Username: <%=habit.username %></h2>
                 
                     <a href="/habits/<%=habit._id%>/edit">
-                        <button>Edit</button>
+                        <button class="show-button">Edit</button>
                     </a>
                     <form action="/habits/<%=habit._id%>?_method=DELETE" method="POST">
                         <input type="submit" value="Delete" />

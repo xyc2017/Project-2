@@ -25,6 +25,11 @@ app.use(session({
 app.use('/habits', HabitRouter)
 app.use('/user', UserRouter)
 
+
+app.get("/", (req, res) => {
+    res.redirect("/habits")
+}) 
+
 // start the server(listener)
 app.listen(PORT, ()=>{
     console.log(`listening on port ${PORT}`)

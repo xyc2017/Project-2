@@ -1,8 +1,16 @@
+/*  header */
+.header{
+    color:blueviolet;
+
+  
+}
+/* index page */
 .index-div{
     background-color: antiquewhite;
-    width: 30%;
+    width: 50%;
     padding: 20px;
     margin:auto;
+    height: auto;
 }
 .index-button{
     color: white;
@@ -39,6 +47,7 @@
 .index-timer{border-radius: 8px;}
 .index-body{
     text-align: center;
+    color:rebeccapurple;
     background-image: url("https://media.self.com/photos/6092c6f54eb017b40e89d517/4:3/w_2560%2Cc_limit/fitness_workouts_movement.jpeg");
     background-size:cover;
 }
@@ -49,3 +58,165 @@
 .index-a{
     margin:2px;
 }
+/* show page */
+.show-body{
+    background-image: url("https://static.nike.com/a/images/f_auto,cs_srgb/w_1920,c_limit/dda01e5d-e42e-4f67-9099-e41e2eedf35a/how-to-plan-your-ideal-recovery-day-workout.jpg");
+    background-size:cover;
+    text-align: center; 
+    color:rebeccapurple 
+}
+.show-edit-btn{
+    color: white;
+    background-color: violet;
+    border-color: violet;
+    padding: 5px;
+    margin: 4px 2px
+}
+.show-edit-btn{border-radius: 8px;}
+.show-delete{
+    color: white;
+    background-color: salmon;
+    border-color: salmon;
+    padding: 5px;
+    margin: 4px 2px
+}
+.show-delete{border-radius: 8px;}
+.show-back{
+    color: white;
+    background-color: seagreen;
+    border-color: seagreen;
+    padding: 5px;
+    margin: 4px 2px;
+    justify-content: end;
+}
+.show-back{border-radius: 8px;}
+.show-article{
+    justify-content: start;
+}
+.show-div{
+    background-color: antiquewhite;
+    width: 50%;
+    padding: 20px;
+    margin:auto;
+}
+/* edit page */
+.edit-body{
+    background-image: url("https://thrive.psu.edu/wp-content/uploads/2022/09/Healthy-Lifestyle-Illustration.jpg");
+    background-size:cover;
+    text-align: center;
+    color: rebeccapurple;
+}
+.edit-div{
+    background-color: antiquewhite;
+    width: 50%;
+    padding: 30px;
+    margin:auto;
+}
+.edit-input{
+    color: white;
+    background-color: violet;
+    border-color: violet;
+    padding: 5px;
+    margin-top: 10px;
+}
+.edit-input{border-radius: 8px;}
+.edit-label{
+    flex-direction: column;
+}
+/* new page */
+.new-body{
+    background-image: url("https://img.freepik.com/free-vector/flat-active-lifestyle-composition-with-running-man-bicycle-rackets-balls-healthy-food-clock-frame-illustration_1284-47378.jpg?w=2000");
+    background-size:cover;
+    text-align: center;
+}
+.new-div{
+    background-color: antiquewhite;
+    width: 50%;
+    padding: 30px;
+    margin:auto;
+}
+.new-add{
+    color: white;
+    background-color: violet;
+    border-color: violet;
+    padding: 5px;
+    margin-top: 10px;
+    width: 60px;
+}
+.new-add{border-radius: 8px;}
+.new-fieldset{
+    padding:10px;
+    flex-direction: column;
+}
+.pomodoro-body{
+   background-image:url('https://unito.io/wp-content/uploads/2020/01/PomodoroTechnique.jpg');
+   background-size:cover;
+   text-align: center;
+   color:antiquewhite
+}
+.pomodoro-btn{
+    background-color: antiquewhite;
+    border-color: antiquewhite;
+    padding: 5px;
+    margin: 10px;
+    width: 100px;
+    
+}
+.pomodoro-btn{border-radius: 8px;}
+.pomodoro-span{
+    font-size: 40px;
+}
+.pomodoro-back{
+    background-color:mediumseagreen;
+    border-color: mediumseagreen;
+    color: antiquewhite;
+    padding: 5px;
+    width: 100px;
+    margin-top: 5px;
+}
+.pomodoro-back{border-radius: 8px;}
+.pomodoro-main{
+    text-align: center;
+}
+.login-body{
+    background-image: url("https://resetyoureveryday.com/wp-content/uploads/2020/06/CMSCover-2.jpg");
+    background-size:cover;
+   text-align: center;
+}
+.login-div{
+    background-color:thistle;
+    width: 50%;
+    padding: 20px;
+    margin:auto;
+    height: auto;
+}
+.login-btn{
+    background-color: antiquewhite;
+    border-color: antiquewhite;
+    padding: 5px;
+    margin: 10px;
+    width: 100px;
+}
+.login-btn{border-radius: 8px;}
+.signup-body{
+    background-image: url("https://static01.nyt.com/images/2020/02/25/smarter-living/well-challenge-article/well-challenge-article-videoSixteenByNineJumbo1600.png");
+    background-size:cover;
+    text-align: center;
+    
+}
+.signup-div{
+    background-color:antiquewhite;
+    width: 50%;
+    padding: 20px;
+    margin:auto;
+    height: auto;
+}
+.signup-btn{
+    background-color:salmon;
+    border-color: salmon;
+    padding: 5px;
+    margin: 10px;
+    width: 150px;
+    color: antiquewhite;
+}
+.signup-btn{border-radius: 8px;}

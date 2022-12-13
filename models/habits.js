@@ -13,7 +13,8 @@ const habitsSchema=new Schema({
     complete: Boolean,
     notes: String,
     counter: String,
-    username: String
+    username: String,
+    checkIn: Number
 
 }) 
 

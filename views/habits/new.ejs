@@ -2,11 +2,11 @@
 <html>
     <%- include("../partials/head.ejs") %> 
 
-    <body>
+    <body class="new-body">
         <%- include("../partials/header.ejs") %> 
         <div class="new-div">
             <form action="/habits" method="POST">
-                <fieldset class="fieldset">
+                <fieldset class="new-fieldset">
                     <legend class="new-legend">Add a New Item</legend>
                     <label class="new-label">
                         ITEM NAME: <input type="text" name="name" placeholder="Enter here" />
@@ -30,7 +30,7 @@
                         USERNAME: <input type="text" name="username" />
                     </label>
                 </fieldset>
-                <input type="submit" value="Add" />
+                <input class="new-add" type="submit" value="Add" />
             </form>
         </div>
     </body>

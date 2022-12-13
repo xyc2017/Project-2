@@ -9,6 +9,8 @@ const UserRouter=require('./controllers/user')
 const session=require('express-session') // gives session cookies
 const MongoStore=require('connect-mongo') // reads the session and connect to 
 //establish mong connection
+
+
 const app=express()
 
 app.use(morgan('dev'))

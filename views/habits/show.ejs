@@ -2,10 +2,10 @@
 <html>
     <%- include("../partials/head.ejs") %> 
 
-<body>
+<body class="show-body">
     <%- include("../partials/header.ejs") %> 
         <main>
-            <div>
+            <div class="show-div">
                 <article class="show-article">
                     <h2>Habit Name: <%=habit.name %></h2>
                     <h2>Type: <%=habit.type %></h2>
@@ -14,16 +14,17 @@
                     <h2>Complete? <%=habit.complete %></h2>
                     <h2>Notes: <%=habit.notes %></h2>
                     <h2>Username: <%=habit.username %></h2>
-                
-                    <a href="/habits/<%=habit._id%>/edit">
-                        <button class="show-button">Edit</button>
-                    </a>
+                <div class="show-buttons">
+                    <a class="show-a" href="/habits/<%=habit._id%>/edit">
+                        <button class="show-edit-btn">Edit</button>
+                    </a> 
                     <form action="/habits/<%=habit._id%>?_method=DELETE" method="POST">
-                        <input type="submit" value="Delete" />
-                    </form>
-                    <a href="/habits/">
-                        <button>Back</button>
+                    <input class="show-delete" type="submit" value="Delete" />
+                    </form> 
+                    <a class="show-a" href="/habits/">
+                        <button class="show-back">Back</button>
                     </a>
+                </div>
                 </article>
             </div>
         </main>

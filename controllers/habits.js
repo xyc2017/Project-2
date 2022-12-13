@@ -10,28 +10,25 @@ router.use((req, res, next)=>{
         res.redirect('/user/login')
     }
 })
-
 router.get('/', (req, res)=>{
     // get all habits from mongodb and send them back
+
     Habit.find({username: req.session.username})
     .then((habits)=>{
         res.render('habits/index.ejs', {habits})
     })
-    .catch(err=>console.log(err))
 })
-
-
 router.get('/pomodoro',(req, res)=>{
-    let time=1500
-        function timeLeft(){
-            let min=Math.floor(time/60)
-            let sec=time%60 
-            sec= sec <10 ? "0" +sec :sec
-            time--
-            return(`${min}:${sec}`)
-            if(min==0 && sec==0) {clearInterval}
-            let countdown=setInterval(timeLeft, 1000)
-            } 
+  
+    const startingTime=25
+    let time=startingTime * 60
+    setInterval(pomodoro, 1000)
+    function pomodoro() {
+      const min=Math.floor(time/60)
+      let sec=time%60
+    const countdown=`${min}:${sec}`;
+    time--
+    }
     res.render('habits/pomodoro.ejs')
 })
 // new route

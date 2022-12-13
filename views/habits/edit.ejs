@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <%- include("../partials/head.ejs") %> 
-    <body>
+    <body class="edit-body">
          <%- include("../partials/header.ejs") %> 
-        <div>
+        <div class="edit-div">
             <form action="/habits/<%= habit._id %>?_method=PUT" method="POST">
                 <fieldset class="edit-fieldset">
-                    <legend class="edit-legend">Edit a <%=habit.name%></legend>
+                    <legend class="edit-legend">Edit <%=habit.name%></legend>
                     <label class="edit-label">
                         ITEM NAME: <input 
                         type="text" 
@@ -14,20 +14,20 @@
                         value="<%=habit.name%>"
                         placeholder="Enter here" />
                     </label>
-                    <label>
+                    <label class="edit-label">
                         TYPE: <input 
                         type="type" 
                         name="type" 
                         value="<%=habit.type%>"
                         placeholder="Start a new habit, or correct a bad habit" />
                     </label>
-                    <label>
+                    <label class="edit-label">
                         START DATE: <input 
                         type="date" 
                         name="startDate"
                         value="<%=habit.startDate%>" />
                     </label>
-                    <label>
+                    <label class="edit-label">
                         TARGET DATE: <input 
                         type="date" 
                         name="targetDate"
@@ -38,21 +38,21 @@
                         type="checkbox" 
                         name="complete" <%= habit.complete ? "checked" : "" %> />
                     </label>
-                    <label>
+                    <label class="edit-label">
                         NOTES: <input 
                         type="text" 
                         name="notes" 
                         value="<%=habit.notes %>"
                         placeholder="Enter notes here" />
                     </label>
-                    <label>
+                    <label class="edit-label">
                         USERNAME: <input 
                         type="text" 
                         name="username"
                         value="<%=habit.username %>" />
                     </label>
                 </fieldset>
-                <input type="submit" value="Update <%=habit.name %>" />
+                <input class="edit-input" type="submit" value="Update <%=habit.name %>" />
             </form>
         </div>
     </body>

@@ -2,12 +2,26 @@
 <html lang="en">
     <%- include("../partials/head.ejs") %> 
 
-    <body>
+    <body class="pomodoro-body">
         <%- include("../partials/header.ejs") %> 
-        <main>
+        <main class="pomodoro-main">
+        <div>
             <h1 class="pomodoro-h1">Pomodoro Timer</h1>
-            <div class="timer">
-               
+            </div>
+            <span class="pomodoro-span">25:00</span>
+            <div id="filler"></div>
+        </div>
+
+            <div id="buttons">
+                <button class="pomodoro-btn" id="work">Work</button>
+                <button class="pomodoro-btn"  id="shortBreak">Short Break</button>
+                <button class="pomodoro-btn"  id="longBreak">Long Break</button>
+                <button class="pomodoro-btn" id="stop">Stop</button>
+            </div>
+            <div> 
+                <a class="pomodoro-a" href="/habits/">
+                    <button class="pomodoro-back">Back</button>
+                </a>
             </div>
         </main>
     </body>

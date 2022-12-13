@@ -17,12 +17,17 @@
                     <%=habit.name%> -
                     <%=habit.complete %> 
                 </a>
-                
-                    <button class="index-checkin-btn">Check-in
-                    </button>
+               
+                <% function dailyCheckIn(){ %>
+                    <% let counter=0 %>
+                    <% counter=habit.checkIn %>
+                   <% counter++ %>
+               <% } %>
+
+                    <button onclick="dailyCheckIn()" class="index-checkin-btn">Check-in</button>
                     
                 </article>
-            <% } %>
+                <% } %>
             
             
         </div>
